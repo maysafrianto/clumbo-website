@@ -1,4 +1,4 @@
-name: Deploy to VPS 
+name: Deploy to VPS
 
 on:
   push:
@@ -16,19 +16,23 @@ jobs:
       - name: Deploy via SSH to Herza VPS
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.VPS_HOST }}       # IP VPS lo (disembunyikan)
-          username: ${{ secrets.VPS_USERNAME }}   # Username root (disembunyikan)
-          key: ${{ secrets.VPS_SSH_PASSWORD }}     # SSH Private Key lo (disembunyikan)
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }} # <-- SUDAH DIGANTI JADI password
           port: 22
           script: |
+            # Membuat folder project di VPS jika belum ada
+            mkdir -p ~/clumbo-website
+            cd ~/clumbo-website
             
-            cd /Documents/Clumbo-website
+            # Jika folder baru/kosong, inisialisasi git bawaan repositori kamu
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/maysafrianto/clumbo-website.git .
+            fi
             
-            
+            # Ambil kodingan HTML dan Docker terbaru dari GitHub ke VPS
             git reset --hard origin/main
-            
-            
             git pull origin main
             
-            
+            # Jalankan docker website kamu di VPS
             docker compose up -d --build
