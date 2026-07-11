@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web-uas:
+    image: nginx:latest
+    container_name: clumbo_website
+    ports:
+      - "8091:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    restart: always
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: monitoring_uas_clumbo
+    ports:
+      - "3013:3013" 
+    volumes:
+      - uptime-kuma-data:/app/data
+    restart: always
+
+volumes:
+  uptime-kuma-data:
