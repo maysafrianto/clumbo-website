@@ -28,3 +28,18 @@ GitHub Repo ──trigger──► GitHub Actions (CI/CD)
                          │                               Storage    │
                          │                             (S3/R2/B2)   │
                          └──────────────────────────────────────────┘
+
+
+Alur:
+
+Developer git push ke branch main di GitHub Repo.
+
+GitHub Actions otomatis jalan: build (jika perlu) → SSH ke VPS → docker compose pull && up -d.
+
+User akses domain → DNS resolve ke IP VPS → request HTTPS ke nginx → nginx proxy_pass ke App Container.
+
+nginx jadi reverse proxy; SSL cert dikelola certbot (Let's Encrypt), auto-renew via systemd timer / cron.
+
+Uptime Kuma polling endpoint tiap menit untuk cek uptime.
+
+Cron job backup data aplikasi tiap hari ke Cloud Storage eksternal menggunakan layanan gratis dari Backblaze.
