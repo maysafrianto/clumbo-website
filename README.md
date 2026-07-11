@@ -8,25 +8,26 @@ Static HTML site yang dideploy ke VPS dengan domain HTTPS (via nginx + certbot),
 
 ## 1. Architecture Diagram
 
+```text
 Developer laptop
-│ git push (main)
-▼
+      │ git push (main)
+      ▼
 GitHub Repo ──trigger──► GitHub Actions (CI/CD)
-│
-│ SSH deploy
-▼
-┌─────────────── VPS Server ───────────────┐
-│                                          │
-User Browser          │   nginx :80,:443  ──proxy_pass──►   App  │
-──resolve domain──►   │   (SSL via certbot)                Container│
-(Domain DNS A record) │        ▲                          (Docker)│
-│        │ health check                    │
-│   Uptime Kuma (sibling container)        │
-│                                          │
-│   cron job ──daily backup──►  Cloud      │
-│                               Storage    │
-│                             (S3/R2/B2)   │
-└──────────────────────────────────────────┘
+                                 │
+                                 │ SSH deploy
+                                 ▼
+                         ┌─────────────── VPS Server ───────────────┐
+                         │                                          │
+   User Browser          │   nginx :80,:443  ──proxy_pass──►   App  │
+   ──resolve domain──►   │   (SSL via certbot)                Container│
+   (Domain DNS A record) │        ▲                          (Docker)│
+                         │        │ health check                    │
+                         │   Uptime Kuma (sibling container)        │
+                         │                                          │
+                         │   cron job ──daily backup──►  Cloud      │
+                         │                               Storage    │
+                         │                             (S3/R2/B2)   │
+                         └──────────────────────────────────────────┘
 
 
 **Alur:**
@@ -52,6 +53,7 @@ User Browser          │   nginx :80,:443  ──proxy_pass──►   App  │
 
 ## 2. Struktur Repo
 
+```text
 .
 UAS-WEB-DEPLOYMENT/
 ├── .github/
