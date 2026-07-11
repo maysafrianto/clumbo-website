@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clumbo Website - Tugas Akhir UAS</title>
+    <style>
+        /* Modern & Clean Style */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        header { 
+            background: linear-gradient(135deg, #2c3e50, #3498db); 
+            color: white; 
+            text-align: center; 
+            padding: 3.5rem 1rem; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        nav { 
+            background: #232f3e; 
+            padding: 1rem; 
+            text-align: center; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a { 
+            color: white; 
+            margin: 0 20px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: color 0.3s ease;
+        }
+        nav a:hover { 
+            color: #1abc9c; 
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px;
+        }
+        section {
+            background: white; 
+            padding: 30px; 
+            margin-bottom: 30px;
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #fdfdfd;
+            padding: 20px;
+            border-left: 4px solid #1abc9c;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .biodata-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+        }
+        .biodata-table th, .biodata-table td { 
+            border: 1px solid #e2e8f0; 
+            padding: 14px; 
+            text-align: left; 
+        }
+        .biodata-table th { 
+            background-color: #f7fafc; 
+            color: #4a5568;
+            width: 30%;
+        }
+        .biodata-table td {
+            color: #2d3748;
+            font-weight: 500;
+        }
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            background: #2c3e50; 
+            color: white; 
+            margin-top: 60px; 
+            font-size: 0.95rem;
+        }
+        footer p {
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CLUMBO WEBSITE</h1>
+        <p>Projek Pengembangan Aplikasi Web Statis - Ujian Akhir Semester</p>
+    </header>
+
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#fitur">Fitur Sistem</a>
+        <a href="#biodata">Profil Pengembang</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Section Beranda -->
+        <section id="beranda">
+            <h2>Selamat Datang di Clumbo Website</h2>
+            <p>Clumbo Website merupakan sebuah platform web statis yang dirancang khusus untuk memenuhi tugas Ujian Akhir Semester (UAS). Proyek ini berfokus pada implementasi arsitektur web dasar yang bersih, responsif, dan siap dideploy ke lingkungan server.</p>
+            <p>Melalui proyek ini, seluruh komponen kode dikelola menggunakan version control system (Git) dan diunggah ke platform GitHub untuk mempermudah integrasi dengan server VPS.</p>
+        </section>
+
+        <!-- Section Fitur / Keunggulan -->
+        <section id="fitur">
+            <h2>Teknologi & Fitur</h2>
+            <p>Meskipun dibangun menggunakan arsitektur dasar, Clumbo Website mengedepankan beberapa prinsip modern:</p>
+            <div class="features">
+                <div class="card">
+                    <h3>Responsive Design</h3>
+                    <p>Tampilan website otomatis menyesuaikan dengan ukuran layar perangkat (HP, Tablet, maupun Laptop).</p>
+                </div>
+                <div class="card">
+                    <h3>Clean Code</h3>
+                    <p>Struktur penulisan HTML5 dan CSS3 yang rapi dan terorganisir dengan baik sehingga mudah dirawat.</p>
+                </div>
+                <div class="card">
+                    <h3>VPS & Cloud Ready</h3>
+                    <p>Konfigurasi direktori file telah dioptimalkan agar siap dijalankan menggunakan web server seperti Nginx atau Apache.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Biodata -->
+        <section id="biodata">
+            <h2>Biodata Mahasiswa</h2>
+            <p>Berikut adalah data identitas pengembang aplikasi web ini untuk keperluan penilaian akademik:</p>
+            <table class="biodata-table">
+                <tr>
+                    <th>Nama Lengkap</th>
+                    <td>[Isi Nama Lengkap Anda di Sini]</td>
+                </tr>
+                <tr>
+                    <th>NIM</th>
+                    <td>[Isi NIM Anda di Sini]</td>
+                </tr>
+                <tr>
+                    <th>Program Studi</th>
+                    <td>Teknik Informatika</td>
+                </tr>
+                <tr>
+                    <th>Mata Kuliah</th>
+                    <td>Pemrograman Berbasis Web / Tugas Akhir UAS</td>
+                </tr>
+                <tr>
+                    <th>Status Projek</th>
+                    <td>Production Ready (Deployed via VPS)</td>
+                </tr>
+            </table>
+        </section>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Clumbo Website. Seluruh Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
