@@ -14,7 +14,7 @@ services:
     image: louislam/uptime-kuma:1
     container_name: monitor.clumbo.my.id
     ports:
-      - "3013:3013" 
+      - "3013:3001" 
     volumes:
       - uptime-kuma-data:/app/data
     restart: always
